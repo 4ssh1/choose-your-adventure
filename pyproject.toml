@@ -1,0 +1,15 @@
+[project]
+name = "choose-your-adventure"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "fastapi[all]>=0.135.2",
+    "langchain>=1.2.13",
+    "langchain-openai>=1.1.12",
+    "psycopg2-binary>=2.9.11",
+    "python-dotenv>=1.2.2",
+    "sqlalchemy>=2.0.48",
+    "uvicorn>=0.42.0",
+]
