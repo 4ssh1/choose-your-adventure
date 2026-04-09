@@ -1,16 +1,19 @@
-import uuid
-from typing import Optional
-from datetime import datetime
-from fastapi import APIRouter, Depends, HTTPException, Cookie, Response, BackgroundTasks
+from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
-
-from db.database import get_db, SessionLocal
-from models.story import Story, StoryNode
+from db.database import get_db
 from models.job import StoryJob
-from schemas.story import CompleteStoryNodeRes, CompleteStoryRes, StoryCreate
 from schemas.job import StoryJobRes
 
 router = APIRouter(
     prefix= "/jobs",
     tags= ["jobs"]
 )
+
+@router.get("/{job.id}", response_model=StoryJobRes)
+def get_job_status(job_id: str, db: Session = Depends(get_db)):
+    job = db.query(StoryJob).filter(StoryJob.job_id == job_id).first()
+
+    if not job:
+        raise HTTPException(status_code=404, detail="Job not found")
+    
+    return job
