@@ -61,21 +61,29 @@ def generate_story_task(job_id: str, theme:str, session_id: str):
 
         if not job:
             return
-        
-        try: 
-            job.status = "processing"# type: ignore
+
+        try:
+            job.status = "processing"  # type: ignore
             db.commit()
 
-            story = {}
+            # Create a new Story object
+            story = Story(
+                title=f"Story for {theme}",
+                session_id=session_id
+            )
+            db.add(story)
+            db.commit()
+            db.refresh(story)
 
-            job.story_id = 1 # type: ignore
-            job.status = "completed" # type: ignore
-            job.completed_at = datetime.now() # type: ignore
+            # Assign the real story.id to the job
+            job.story_id = story.id  # type: ignore
+            job.status = "completed"  # type: ignore
+            job.completed_at = datetime.now()  # type: ignore
             db.commit()
         except Exception as e:
-            job.status = "failed" # type: ignore
-            job.completed_at = datetime.now() # type: ignore
-            job.error = str(e)# type: ignore
+            job.status = "failed"  # type: ignore
+            job.completed_at = datetime.now()  # type: ignore
+            job.error = str(e)  # type: ignore
             db.commit()
 
     finally:
