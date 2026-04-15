@@ -210,11 +210,6 @@ The app follows a layered FastAPI architecture:
 .
 ┣ core
  ┃ ┣ __pycache__
- ┃ ┃ ┣ config.cpython-314.pyc
- ┃ ┃ ┣ models.cpython-314.pyc
- ┃ ┃ ┣ prompts.cpython-314.pyc
- ┃ ┃ ┣ story_generator.cpython-314.pyc
- ┃ ┃ ┗ __init__.cpython-314.pyc
  ┃ ┣ config.py
  ┃ ┣ models.py
  ┃ ┣ prompts.py
@@ -222,36 +217,24 @@ The app follows a layered FastAPI architecture:
  ┃ ┗ __init__.py
  ┣ db
  ┃ ┣ __pycache__
- ┃ ┃ ┣ database.cpython-314.pyc
- ┃ ┃ ┗ __init__.cpython-314.pyc
  ┃ ┣ database.py
  ┃ ┗ __init__.py
  ┣ models
  ┃ ┣ __pycache__
- ┃ ┃ ┣ job.cpython-314.pyc
- ┃ ┃ ┣ story.cpython-314.pyc
- ┃ ┃ ┗ __init__.cpython-314.pyc
  ┃ ┣ job.py
  ┃ ┣ story.py
  ┃ ┗ __init__.py
  ┣ routes
  ┃ ┣ __pycache__
- ┃ ┃ ┣ job.cpython-314.pyc
- ┃ ┃ ┣ story.cpython-314.pyc
- ┃ ┃ ┗ __init__.cpython-314.pyc
  ┃ ┣ job.py
  ┃ ┣ story.py
  ┃ ┗ __init__.py
  ┣ schemas
  ┃ ┣ __pycache__
- ┃ ┃ ┣ job.cpython-314.pyc
- ┃ ┃ ┣ story.cpython-314.pyc
- ┃ ┃ ┗ __init__.cpython-314.pyc
  ┃ ┣ job.py
  ┃ ┣ story.py
  ┃ ┗ __init__.py
  ┣ __pycache__
- ┃ ┗ main.cpython-314.pyc
  ┣ .env
  ┣ .gitignore
  ┣ .python-version
