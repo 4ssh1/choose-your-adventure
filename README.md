@@ -6,13 +6,15 @@ This service is a FastAPI backend that generates branching "choose your own adve
 The project creates a background job when a story is requested. The client first receives a `job_id`, then polls a job-status endpoint until generation is complete, and finally fetches the full generated story tree.
 
 ## Tech Stack
-- Python 3.14+
-- FastAPI + Uvicorn
-- SQLAlchemy ORM
-- Pydantic / Pydantic Settings
-- httpx (LLM HTTP calls)
-- Groq Chat Completions API
-- SQLite by default (configurable through `DATABASE_URL`)
+<div align="center">  
+  <h3>🛠️ Tech Stack</h3>
+  
+  <img src="https://img.shields.io/badge/Python-3.14+-3776AB?logo=python&logoColor=white&style=for-the-badge" alt="Python">
+  <img src="https://img.shields.io/badge/FastAPI-009688?logo=fastapi&logoColor=white&style=for-the-badge" alt="FastAPI">
+  <img src="https://img.shields.io/badge/SQLAlchemy-FF4A3E?logo=sqlalchemy&logoColor=white&style=for-the-badge" alt="SQLAlchemy">
+  <img src="https://img.shields.io/badge/Pydantic-FF6F00?logo=pydantic&logoColor=white&style=for-the-badge" alt="Pydantic">
+  <img src="https://img.shields.io/badge/Groq-00A3FF?logo=groq&logoColor=white&style=for-the-badge" alt="Groq">
+</div>
 
 ## Production Environment Variables
 Create a `.env` file in the project root.
