@@ -2,6 +2,7 @@ from sqlalchemy import Column, Integer, String, Boolean, ForeignKey, DateTime, J
 from sqlalchemy.sql import func
 from sqlalchemy.orm import relationship, Mapped, mapped_column
 from typing import List
+from datetime import datetime
 
 from db.database import Base
 
@@ -11,7 +12,7 @@ class Story(Base):
     id: Mapped[int] = mapped_column(primary_key=True, index=True)
     title: Mapped[str] = mapped_column(String, index=True)
     session_id: Mapped[str] = mapped_column(String, index=True)
-    created_at: Mapped[str] = mapped_column(DateTime(timezone=True), server_default=func.now())
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
 
     nodes: Mapped[List["StoryNode"]] = relationship("StoryNode", back_populates="story")
 
