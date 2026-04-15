@@ -32,6 +32,15 @@ Required and supported settings:
   - Comma-separated list of origins for CORS. Example: `https://app.example.com,https://admin.example.com`
 - `DEBUG`:
   - Optional (default: `False`).
+- `RATE_LIMIT_ENABLED`:
+  - Optional (default: `True`).
+  - Enables/disables API rate limiting middleware.
+- `RATE_LIMIT_REQUESTS`:
+  - Optional (default: `30`).
+  - Maximum requests allowed from a single client IP within the rate-limit window.
+- `RATE_LIMIT_WINDOW_SECONDS`:
+  - Optional (default: `60`).
+  - Sliding-window duration for request counting.
 
 Example:
 
@@ -41,6 +50,9 @@ DATABASE_URL=postgresql+psycopg2://user:password@host:5432/choose_adventure
 API_PREFIX=/api
 ALLOWED_ORIGINS=https://app.example.com,https://admin.example.com
 DEBUG=False
+RATE_LIMIT_ENABLED=True
+RATE_LIMIT_REQUESTS=30
+RATE_LIMIT_WINDOW_SECONDS=60
 ```
 
 ## Install and Run
@@ -59,6 +71,7 @@ uv run main.py
 Notes:
 - `create_tables()` is executed on app startup in `main.py`, so tables are auto-created from SQLAlchemy models.
 - For production, it is however recommended to run behind a reverse proxy and use process management 
+- Rate limiting is in-memory and per application instance (works without Redis). In multi-instance deployments, limits are enforced independently by each instance.
 
 ## API Base URLs
 - Local service base: `http://localhost:8000`

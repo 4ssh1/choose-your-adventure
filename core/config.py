@@ -9,6 +9,9 @@ class Settings(BaseSettings):
     DEBUG: bool = False
     ALLOWED_ORIGINS: str = ""
     GROQ_API_KEY: str = ""
+    RATE_LIMIT_ENABLED: bool = True
+    RATE_LIMIT_REQUESTS: int = 30
+    RATE_LIMIT_WINDOW_SECONDS: int = 60
 
     @field_validator("ALLOWED_ORIGINS")
     def split_allowed_origins(cls, v: str) -> List[str]:
