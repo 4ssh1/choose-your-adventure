@@ -9,9 +9,9 @@ router = APIRouter(
     tags= ["jobs"]
 )
 
-@router.get("/{job.id}", response_model=StoryJobRes)
-def get_job_status(job_id: str, db: Session = Depends(get_db)):
-    job = db.query(StoryJob).filter(StoryJob.job_id == job_id).first()
+@router.get("/{jobId}", response_model=StoryJobRes)
+def get_job_status(jobId: str, db: Session = Depends(get_db)):
+    job = db.query(StoryJob).filter(StoryJob.job_id == jobId).first()
 
     if not job:
         raise HTTPException(status_code=404, detail="Job not found")
