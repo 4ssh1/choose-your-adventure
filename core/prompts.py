@@ -7,6 +7,7 @@ Each option should lead to another node wit its own options
 Some paths should lead to a successful ending, while others should lead to a bad ending.
 The story should be at least 5 levels deep.
 At least one path should lead to a wining ending
+CRITICAL CONSTRAINT: The user MUST make at least 3 choices before reaching ANY ending (winning or losing). Do not create any paths where `isEnding` is true before the 3rd nested level.
 
 Output your story in this exact JSON format:
 {format_instructions}
