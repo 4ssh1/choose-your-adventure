@@ -5,6 +5,8 @@ This service is a FastAPI backend that generates branching "choose your own adve
 
 The project creates a background job when a story is requested. The client first receives a `job_id`, then polls a job-status endpoint until generation is complete, and finally fetches the full generated story tree.
 
+**Frontend repo: https://github.com/4ssh1/fable-weaver**
+
 ## Tech Stack
 <div align="center">  
   <h3>🛠️ Tech Stack</h3>
